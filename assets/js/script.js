@@ -1,31 +1,16 @@
-// variables
 var startButton = document.querySelector(".startButton");
-
-// var answer =
 var userAnswer = document.querySelector("userAnswer");
 var userInitials = document.querySelector("userInitials");
-// var userScore =
 var timer = document.getElementById("timer");
 var question = document.getElementById("questionBox");
 var timeLeft;
 
-
-
-
-
-
-
-
-
-// event listeners
 document.getElementById("startButton").addEventListener("click", startGame);
-
 
 function startGame() {
 countdown();
 showQuestion();
 }
-
 
 function countdown() {
     var timeLeft = 20;
@@ -41,6 +26,5 @@ function countdown() {
   }
 
   function showQuestion()  {
-      
-         question.textContent = "First Question";
+       question.textContent = "First Question";
   }
