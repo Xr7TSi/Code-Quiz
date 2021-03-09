@@ -21,10 +21,10 @@ var questionSet = [
 },
 {
   "question": "question 2 here",
-  "answerA": "answer option a here",
+  "answerA": "answer option b here",
   "answerB": "answer option b here",
-  "answerC": "answer option c here",
-  "answerD": "answer option d here",
+  "answerC": "answer option b here",
+  "answerD": "answer option b here",
   "correctAnswer": "a",
 },
 {
@@ -38,6 +38,10 @@ var questionSet = [
 ]
 
 document.getElementById("startButton").addEventListener("click", startGame);
+document.getElementById("answerBoxA").addEventListener("click", nextQuestion);
+document.getElementById("answerBoxB").addEventListener("click", nextQuestion);
+document.getElementById("answerBoxC").addEventListener("click", nextQuestion);
+document.getElementById("answerBoxD").addEventListener("click", nextQuestion);
 
 function startGame() {
 
@@ -51,7 +55,7 @@ function startGame() {
         timer.textContent = timeLeft + " seconds remaining";
         clearInterval(timeInterval);  
       }
-    }, 100);
+    }, 1000);
   } countdown();
   
   function showQuestion()  {
@@ -68,16 +72,20 @@ function startGame() {
 
   function showAnswerC()  {
     answerBoxC.textContent = questionSet[0].answerC;
-  } showAnswerC();  
+  } showAnswerC(); 
 
   function showAnswerD()  {
     answerBoxD.textContent = questionSet[0].answerD;
   } showAnswerD();  
 
+  
 
 }
 
-
+function nextQuestion() {
+  console.log("Next Question");
+ 
+}
 
 
   
