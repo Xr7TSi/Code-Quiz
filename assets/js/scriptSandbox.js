@@ -83,5 +83,6 @@ function startGame() {
 }
 
 function nextQuestion() {
-  console.log("Next Question")
+  console.log("Next Question");
+ 
 }
