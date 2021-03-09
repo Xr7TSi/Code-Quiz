@@ -52,17 +52,31 @@ function startGame() {
         clearInterval(timeInterval);  
       }
     }, 100);
-  } countdown()
-
+  } countdown();
+  
   function showQuestion()  {
     questionBox.textContent = questionSet[0].question;
-  } showQuestion()
-
+    } showQuestion();
+  
   function showAnswerA()  {
-    questionBox.textContent = questionSet[0].answerA;
-  } showAnswerA()
+    answerBoxA.textContent = questionSet[0].answerA;
+  } showAnswerA();  
+
+  function showAnswerB()  {
+    answerBoxB.textContent = questionSet[0].answerB;
+  } showAnswerB();  
+
+  function showAnswerC()  {
+    answerBoxC.textContent = questionSet[0].answerC;
+  } showAnswerC();  
+
+  function showAnswerD()  {
+    answerBoxD.textContent = questionSet[0].answerD;
+  } showAnswerD();  
+
 
 }
+
 
 
 

@@ -40,12 +40,8 @@ var questionSet = [
 document.getElementById("startButton").addEventListener("click", startGame);
 
 function startGame() {
-countdown();
-showQuestion();
-showAnswerA();
-}
 
-function countdown() {
+  function countdown() {
     var timeLeft = 20;
     var timeInterval = setInterval(function () {
       if (timeLeft > 0) {
@@ -56,12 +52,27 @@ function countdown() {
         clearInterval(timeInterval);  
       }
     }, 100);
-  }
-
+  } countdown();
+  
   function showQuestion()  {
-       questionBox.textContent = questionSet[0].question;
-  }
-
+    questionBox.textContent = questionSet[0].question;
+    } showQuestion();
+  
   function showAnswerA()  {
-    questionBox.textContent = questionSet[0].answerA;
+    answerBoxA.textContent = questionSet[0].answerA;
+  } showAnswerA();  
+
+  function showAnswerB()  {
+    answerBoxB.textContent = questionSet[0].answerB;
+  } showAnswerB();  
+
+  function showAnswerC()  {
+    answerBoxC.textContent = questionSet[0].answerC;
+  } showAnswerC();  
+
+  function showAnswerD()  {
+    answerBoxD.textContent = questionSet[0].answerD;
+  } showAnswerD();  
+
+
 }
