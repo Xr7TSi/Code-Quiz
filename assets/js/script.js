@@ -21,8 +21,32 @@ var questionSet = [ {
       {text: "answer option d here", 
       correct: false}
     ]
-  } {
+  }, {
     question: "question 2 here",
+    answers: [
+      {text: "answer option a here",
+      correct: true},
+      {text: "answer option b here", 
+      correct: false},
+      {text: "answer option c here", 
+      correct: false},
+      {text: "answer option d here", 
+      correct: false},
+    ]
+  }, {
+    question: "question 3 here",
+    answers: [
+      {text: "answer option a here",
+      correct: true},
+      {text: "answer option b here", 
+      correct: false},
+      {text: "answer option c here", 
+      correct: false},
+      {text: "answer option d here", 
+      correct: false},
+    ]
+  }, {
+    question: "question 4 here",
     answers: [
       {text: "answer option a here",
       correct: true},
@@ -63,10 +87,10 @@ function countdown() {
 
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
-  answerBoxA.textContent = questionSet[0].answerA;
-  answerBoxB.textContent = questionSet[0].answerB;
-  answerBoxC.textContent = questionSet[0].answerC;
-  answerBoxD.textContent = questionSet[0].answerD;
+  answerBoxA.textContent = questionSet[0].answers[0].text;
+  answerBoxB.textContent = questionSet[0].answers[1].text;
+  answerBoxC.textContent = questionSet[0].answers[2].text;
+  answerBoxD.textContent = questionSet[0].answers[3].text;
 }
 // for loop for above to go through questionSet variable
 
