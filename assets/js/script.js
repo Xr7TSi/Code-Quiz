@@ -70,42 +70,18 @@ document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 
-function responseA () {
-  if (questionSet[i].answers[0].correct === true) {
-    score = score + 10, console.log (score),
-    console.log ("True"); 
-  } else {timeLeft = timeLeft - 10, console.log("false")}
-}
+function showScore() {
+  scoreBox.textContent = score;
+} showScore()
 
-function responseB () {
-  if (questionSet[i].answers[1].correct === true) {
-    score = score + 10, console.log (score),
-    console.log ("True"); 
-  } else {timeLeft = timeLeft - 10,console.log("False")}
-}
-
-function responseC () {
-  if (questionSet[i].answers[2].correct === true) {
-    score = score + 10, console.log (score),
-    console.log ("True"); 
-  } else {timeLeft = timeLeft - 10,console.log("False")}
-}
-
-function responseD () {
-  if (questionSet[i].answers[3].correct === true) {
-    score = score + 10, console.log (score),
-    console.log ("True"); 
-  } else {timeLeft = timeLeft - 10,console.log("False")}
-}
+function showTimer() {
+  timer.textContent = timeLeft + " seconds remaining";
+} showTimer();
 
 function startGame() {
   countdown();
   showQuestion();
 }
-
-function showTimer() {
-  timer.textContent = timeLeft + " seconds remaining";
-} showTimer();
 
 function countdown() {
   var timeInterval = setInterval(function () {
@@ -118,20 +94,6 @@ function countdown() {
     }; 
   }, 1000);
 }
-
-function showScore() {
-  scoreBox.textContent = score;
-} showScore()
-
-function gameOver() {
-  timer.textContent = timeLeft + " seconds remaining";
-  questionBox.textContent = "Game Over";
-  answerBoxA.textContent = "";
-  answerBoxB.textContent = "";
-  answerBoxC.textContent = "";
-  answerBoxD.textContent = "";
-}
-// gameOver needs to stop the countdown
 
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
@@ -155,8 +117,44 @@ function nextQuestion() {
     console.log("Next Question");
     }
   }; 
+
+  function responseA () {
+    if (questionSet[i].answers[0].correct === true) {
+      score = score + 10, console.log (score),
+      console.log ("True"); 
+    } else {timeLeft = timeLeft - 10, console.log("false")}
+  }
+  
+  function responseB () {
+    if (questionSet[i].answers[1].correct === true) {
+      score = score + 10, console.log (score),
+      console.log ("True"); 
+    } else {timeLeft = timeLeft - 10,console.log("False")}
+  }
+  
+  function responseC () {
+    if (questionSet[i].answers[2].correct === true) {
+      score = score + 10, console.log (score),
+      console.log ("True"); 
+    } else {timeLeft = timeLeft - 10,console.log("False")}
+  }
+  
+  function responseD () {
+    if (questionSet[i].answers[3].correct === true) {
+      score = score + 10, console.log (score),
+      console.log ("True"); 
+    } else {timeLeft = timeLeft - 10,console.log("False")}
+  }
    
- 
+  function gameOver() {
+    timer.textContent = timeLeft + " seconds remaining";
+    questionBox.textContent = "Game Over";
+    answerBoxA.textContent = "";
+    answerBoxB.textContent = "";
+    answerBoxC.textContent = "";
+    answerBoxD.textContent = "";
+  }
+  // gameOver needs to stop the countdown 
 
 
 
