@@ -7,7 +7,7 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
-var timeLeft;
+var timeLeft = 60
 var i = 0
 var score = 0;
 
@@ -74,28 +74,28 @@ function responseA () {
   if (questionSet[i].answers[0].correct === true) {
     score = score + 10, console.log (score),
     console.log ("True"); 
-  } else {console.log("false")}
+  } else {timeLeft = timeLeft - 10, console.log("false")}
 }
 
 function responseB () {
   if (questionSet[i].answers[1].correct === true) {
     score = score + 10, console.log (score),
     console.log ("True"); 
-  } else {console.log("False")}
+  } else {timeLeft = timeLeft - 10,console.log("False")}
 }
 
 function responseC () {
   if (questionSet[i].answers[2].correct === true) {
     score = score + 10, console.log (score),
     console.log ("True"); 
-  } else {console.log("False")}
+  } else {timeLeft = timeLeft - 10,console.log("False")}
 }
 
 function responseD () {
   if (questionSet[i].answers[3].correct === true) {
     score = score + 10, console.log (score),
     console.log ("True"); 
-  } else {console.log("False")}
+  } else {timeLeft = timeLeft - 10,console.log("False")}
 }
 
 function startGame() {
@@ -103,8 +103,11 @@ function startGame() {
   showQuestion();
 }
 
+function showTimer() {
+  timer.textContent = timeLeft + " seconds remaining";
+} showTimer();
+
 function countdown() {
-  var timeLeft = 20;
   var timeInterval = setInterval(function () {
     if (timeLeft > 0) {
       timer.textContent = timeLeft + " seconds remaining";
@@ -121,7 +124,7 @@ function showScore() {
 } showScore()
 
 function gameOver() {
-  timer.textContent = "";
+  timer.textContent = timeLeft + " seconds remaining";
   questionBox.textContent = "Game Over";
   answerBoxA.textContent = "";
   answerBoxB.textContent = "";
