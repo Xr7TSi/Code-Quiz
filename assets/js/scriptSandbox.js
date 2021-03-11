@@ -91,9 +91,14 @@ function showQuestion() {
   answerBoxB.textContent = questionSet[0].answers[1].text;
   answerBoxC.textContent = questionSet[0].answers[2].text;
   answerBoxD.textContent = questionSet[0].answers[3].text;
+
+  
 }
 // for loop for above to go through questionSet variable
 
 function nextQuestion() {
   console.log("Next Question");
-}
+  for (let i = 0; i < questionSet.length; i++) {
+    questionBox.textContent = questionSet[i].question;
+  }; 
+};
