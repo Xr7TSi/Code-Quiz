@@ -1,3 +1,5 @@
+
+// variables
 var startButton = document.querySelector(".startButton");
 var userAnswer = document.querySelector("userAnswer");
 var userInitial = document.querySelector("userInitials");
@@ -11,6 +13,7 @@ var timeLeft = 60
 var i = 0
 var score = 0;
 
+// question arrays
 var questionSet = [ {
     question: "question 1 here",
     answers: [
@@ -63,6 +66,7 @@ var questionSet = [ {
  
 ];
 
+// event listeners
 document.getElementById("startButton").addEventListener("click", startGame);
 document.getElementById("answerBoxMain").addEventListener("click", nextQuestion);
 document.getElementById("answerBoxA").addEventListener("click", responseA);
@@ -70,6 +74,7 @@ document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 
+// game start/stop functions
 function showScore() {
   scoreBox.textContent = score;
 } showScore()
@@ -89,12 +94,22 @@ function countdown() {
       timer.textContent = timeLeft + " seconds remaining";
       timeLeft--;
     } else {
-      timer.textContent = "", 
       clearInterval(timeInterval), gameOver();
     }; 
-  }, 1000);
+  }, 100);
 }
 
+function gameOver() {
+  timer.textContent = timeLeft + " seconds remaining";
+  questionBox.textContent = "Game Over";
+  answerBoxA.textContent = "";
+  answerBoxB.textContent = "";
+  answerBoxC.textContent = "";
+  answerBoxD.textContent = "";
+}
+// gameOver needs to stop the countdown 
+
+// question display functions
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
   answerBoxA.textContent = questionSet[0].answers[0].text;
@@ -118,6 +133,7 @@ function nextQuestion() {
     }
   }; 
 
+  // score addition/response validation and time penalty
   function responseA () {
     if (questionSet[i].answers[0].correct === true) {
       score = score + 10, console.log (score),
@@ -145,13 +161,3 @@ function nextQuestion() {
       console.log ("True"); 
     } else {timeLeft = timeLeft - 10,console.log("False")}
   }
-   
-  function gameOver() {
-    timer.textContent = timeLeft + " seconds remaining";
-    questionBox.textContent = "Game Over";
-    answerBoxA.textContent = "";
-    answerBoxB.textContent = "";
-    answerBoxC.textContent = "";
-    answerBoxD.textContent = "";
-  }
-  // gameOver needs to stop the countdown 
