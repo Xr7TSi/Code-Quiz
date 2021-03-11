@@ -11,8 +11,6 @@ var timeLeft;
 var i = 0
 var score = 0;
 
-
-
 var questionSet = [ {
     question: "question 1 here",
     answers: [
@@ -115,8 +113,18 @@ function countdown() {
       timer.textContent = "", 
       clearInterval(timeInterval), gameOver();
     }; 
-  }, 10000);
+  }, 1000);
 }
+
+function gameOver() {
+  timer.textContent = "";
+  questionBox.textContent = "Game Over";
+  answerBoxA.textContent = "";
+  answerBoxB.textContent = "";
+  answerBoxC.textContent = "";
+  answerBoxD.textContent = "";
+}
+// gameOver needs to stop the countdown
 
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
@@ -139,11 +147,7 @@ function nextQuestion() {
     }
   }; 
    
-  function gameOver() {
-    timer.textContent = "";
-    questionBox.textContent = "Game Over";
-    answerBoxA.textContent = "";
-    answerBoxB.textContent = "";
-    answerBoxC.textContent = "";
-    answerBoxD.textContent = "";
-  }
+  function showScore() {
+    scoreBox.textContent = score;
+  } showScore()
+  // Score does not update
