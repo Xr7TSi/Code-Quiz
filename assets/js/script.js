@@ -76,13 +76,15 @@ document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 
 // game start/stop functions
-function showScore() {
-  scoreBox.textContent = score;
-} showScore();
+
 
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
 } showTimer();
+
+function showScore() {
+  scoreBox.textContent = score;
+} showScore();
 
 function startGame() {
   countdown();
@@ -119,8 +121,6 @@ function gameOver() {
 // ISSUE!! gameOver needs to stop the countdown 
 
 
-
-
 // question display functions
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
@@ -147,29 +147,30 @@ function nextQuestion() {
   // score addition/response validation and time penalty
   function responseA () {
     if (questionSet[i].answers[0].correct === true) {
-      score = score + 10; 
+      score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
   
   function responseB () {
     if (questionSet[i].answers[1].correct === true) {
-      score = score + 10; 
+      score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
   
   function responseC () {
     if (questionSet[i].answers[2].correct === true) {
-      score = score + 10;
+      score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
   
   function responseD () {
     if (questionSet[i].answers[3].correct === true) {
-      score = score + 10; 
+      score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
 
 // Score/username storage
+
 
 
 var highScores = []
