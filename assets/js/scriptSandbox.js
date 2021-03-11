@@ -16,50 +16,50 @@ var score = 0
 var questionSet = [ {
     question: "question 1 here",
     answers: [
-      {text: "answer option a here",
+      {text: "answer option a here, false",
+      correct: false},
+      {text: "answer option b here, false", 
+      correct: false},
+      {text: "answer option c here, true", 
       correct: true},
-      {text: "answer option b here", 
-      correct: false},
-      {text: "answer option c here", 
-      correct: false},
-      {text: "answer option d here", 
+      {text: "answer option d here, false", 
       correct: false}
     ]
   }, {
     question: "question 2 here",
     answers: [
-      {text: "answer option a here",
-      correct: true},
-      {text: "answer option b here", 
+      {text: "answer option a here, false",
       correct: false},
-      {text: "answer option c here", 
+      {text: "answer option b here, false", 
       correct: false},
-      {text: "answer option d here", 
+      {text: "answer option c here, false", 
       correct: false},
+      {text: "answer option d here, true", 
+      correct: true}
     ]
   }, {
     question: "question 3 here",
     answers: [
-      {text: "answer option a here",
+      {text: "answer option a here, false",
+      correct: false},
+      {text: "answer option b here, false", 
+      correct: false},
+      {text: "answer option c here, true", 
       correct: true},
-      {text: "answer option b here", 
-      correct: false},
-      {text: "answer option c here", 
-      correct: false},
-      {text: "answer option d here", 
-      correct: false},
+      {text: "answer option d here, false", 
+      correct: false}
     ]
   }, {
     question: "question 4 here",
     answers: [
-      {text: "answer option a here",
+      {text: "answer option a here, true",
       correct: true},
-      {text: "answer option b here", 
+      {text: "answer option b here, false", 
       correct: false},
-      {text: "answer option c here", 
+      {text: "answer option c here, false", 
       correct: false},
-      {text: "answer option d here", 
-      correct: false},
+      {text: "answer option d here, false", 
+      correct: false}
     ]
   }
  
