@@ -8,6 +8,8 @@ var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
 var timeLeft;
+var i = 0
+
 
 var questionSet = [ {
     question: "question 1 here",
@@ -62,10 +64,11 @@ var questionSet = [ {
 ];
 
 document.getElementById("startButton").addEventListener("click", startGame);
-document.getElementById("answerBoxA").addEventListener("click", nextQuestion);
-document.getElementById("answerBoxB").addEventListener("click", nextQuestion);
-document.getElementById("answerBoxC").addEventListener("click", nextQuestion);
-document.getElementById("answerBoxD").addEventListener("click", nextQuestion);
+document.getElementById("answerBoxMain").addEventListener("click", nextQuestion);
+// document.getElementById("answerBoxA").addEventListener("click");
+// document.getElementById("answerBoxB").addEventListener("click");
+// document.getElementById("answerBoxC").addEventListener("click");
+// document.getElementById("answerBoxD").addEventListener("click");
 
 function startGame() {
   countdown();
@@ -80,7 +83,7 @@ function countdown() {
       timeLeft--;
     } else {
       timer.textContent = timeLeft + " seconds remaining";
-      clearInterval(timeInterval);
+      clearInterval(timeInterval), gameOver();
     }
   }, 1000);
 }
@@ -91,14 +94,25 @@ function showQuestion() {
   answerBoxB.textContent = questionSet[0].answers[1].text;
   answerBoxC.textContent = questionSet[0].answers[2].text;
   answerBoxD.textContent = questionSet[0].answers[3].text;
-
-  
-}
+} 
 // for loop for above to go through questionSet variable
-
 function nextQuestion() {
-  console.log("Next Question");
-  for (let i = 0; i < questionSet.length; i++) {
+    i = i + 1;
+    if (i === questionSet.length) {
+    gameOver()} else { 
     questionBox.textContent = questionSet[i].question;
+    answerBoxA.textContent = questionSet[i].answers[0].text;
+    answerBoxB.textContent = questionSet[i].answers[1].text;
+    answerBoxC.textContent = questionSet[i].answers[2].text;
+    answerBoxD.textContent = questionSet[i].answers[3].text;  
+    console.log("Next Question");
+    }
   }; 
-};
+   
+  function gameOver() {
+    questionBox.textContent = "Game Over";
+    answerBoxA.textContent = "";
+    answerBoxB.textContent = "";
+    answerBoxC.textContent = "";
+    answerBoxD.textContent = "";
+  }
