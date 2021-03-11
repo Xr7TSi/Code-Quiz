@@ -7,7 +7,7 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
-var timeLeft;
+var timeLeft = 20
 var i = 0
 var score = 0;
 
@@ -103,8 +103,11 @@ function startGame() {
   showQuestion();
 }
 
+function showTimer() {
+  timer.textContent = timeLeft + " seconds remaining";
+} showTimer();
+
 function countdown() {
-  var timeLeft = 20;
   var timeInterval = setInterval(function () {
     if (timeLeft > 0) {
       timer.textContent = timeLeft + " seconds remaining";
@@ -138,7 +141,7 @@ function showQuestion() {
   answerBoxD.textContent = questionSet[0].answers[3].text;
   scoreBox.textContent = score;
 } 
-// for loop for above to go through questionSet variable
+
 function nextQuestion() {
     i = i + 1;
     if (i === questionSet.length) {
