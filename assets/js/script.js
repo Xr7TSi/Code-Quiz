@@ -9,6 +9,8 @@ var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
 var timeLeft;
 var i = 0
+var score = 0
+
 
 
 var questionSet = [ {
@@ -65,10 +67,34 @@ var questionSet = [ {
 
 document.getElementById("startButton").addEventListener("click", startGame);
 document.getElementById("answerBoxMain").addEventListener("click", nextQuestion);
-// document.getElementById("answerBoxA").addEventListener("click");
-// document.getElementById("answerBoxB").addEventListener("click");
-// document.getElementById("answerBoxC").addEventListener("click");
-// document.getElementById("answerBoxD").addEventListener("click");
+document.getElementById("answerBoxA").addEventListener("click", responseA);
+document.getElementById("answerBoxB").addEventListener("click", responseB);
+document.getElementById("answerBoxC").addEventListener("click", responseC);
+document.getElementById("answerBoxD").addEventListener("click", responseD);
+
+function responseA () {
+  if (questionSet[i].answers[0].correct === true) {
+    console.log ("True"); 
+  } else {console.log("False")}
+}
+
+function responseB () {
+  if (questionSet[i].answers[1].correct === true) {
+    console.log ("True"); 
+  } else {console.log("False")}
+}
+
+function responseC () {
+  if (questionSet[i].answers[2].correct === true) {
+    console.log ("True"); 
+  } else {console.log("False")}
+}
+
+function responseD () {
+  if (questionSet[i].answers[3].correct === true) {
+    console.log ("True"); 
+  } else {console.log("False")}
+}
 
 function startGame() {
   countdown();
@@ -82,10 +108,10 @@ function countdown() {
       timer.textContent = timeLeft + " seconds remaining";
       timeLeft--;
     } else {
-      timer.textContent = timeLeft + " seconds remaining";
+      timer.textContent = "", 
       clearInterval(timeInterval), gameOver();
-    }
-  }, 1000);
+    }; 
+  }, 10000);
 }
 
 function showQuestion() {
@@ -110,6 +136,7 @@ function nextQuestion() {
   }; 
    
   function gameOver() {
+    timer.textContent = "";
     questionBox.textContent = "Game Over";
     answerBoxA.textContent = "";
     answerBoxB.textContent = "";
