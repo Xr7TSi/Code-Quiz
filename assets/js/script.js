@@ -11,10 +11,9 @@ var answerD = document.getElementById("answerBoxD");
 var timeLeft = 30
 var i = 0
 var score = 0;
-var topScores = []
 var userInitials = []
-// var userStats = []
-var userScores = []
+var userStats = []
+var userScore = []
 
 
 
@@ -82,11 +81,7 @@ document.getElementById("submitBtn").addEventListener("click", pushStats);
 
 // game start/stop functions
 
-// function getStats() {
-//   document.getElementById("initialsInput.value"),
-//   userInitials.push(initialsInput.value),
-//   localStorage.setItem('userInitials', userInitials);
-// }
+
 
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -108,7 +103,8 @@ function countdown() {
       timer.textContent = timeLeft + " seconds remaining";
       timeLeft--;
     } else {
-      clearInterval(timeInterval);
+      clearInterval(timeInterval),
+      timer.textContent = timeLeft + " seconds remaining";
     }; 
   }, 1000);
 }
@@ -119,32 +115,26 @@ function gameOver() {
   answerBoxB.textContent = "";
   answerBoxC.textContent = "";
   answerBoxD.textContent = "";
-  topScores.push(score);
-  score = 0;
   timeLeft = 0;
-  timer.textContent = timeLeft + " seconds remaining";
-  // localStorage.setItem('topScores', topScores);
+  timer.textContent = timeLeft + " seconds remaining",
+  getUserScore(); 
 }
 
 function getInitials() {
   document.getElementById("initialsInput.value"),
-  userInitials.push(initialsInput.value), console.log(userInitials),
-  localStorage.setItem('userInitials', userInitials);
+  userInitials.push(initialsInput.value);
 }
 
 function getUserScore() {
-  userScores.push(score);
-  localStorage.setItem('userScores', userScores);
+  userScore.push(score);
 }
-
-// function getUserStats() {
-//   userStats.push([userInitials, savedScores]),
-//   localStorage.setItem('userStats', userStats);
-// }
 
 function pushStats() {
   getInitials(),
-  getUserScore();
+  userStats.push("Hello"),
+  localStorage.setItem('userStats', userStats);
+  
+  // modify to add initials and scores as objects into an array. 
 }
 
 
@@ -197,13 +187,4 @@ function nextQuestion() {
   }
 
 // Score/username storage
-
-
-
-
-
-
-
-
-
 
