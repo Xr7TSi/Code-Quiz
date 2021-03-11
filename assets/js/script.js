@@ -2,7 +2,7 @@
 // variables
 var startButton = document.querySelector(".startButton");
 var userAnswer = document.querySelector("userAnswer");
-var userInitial = document.querySelector("userInitials");
+var userInitials = document.querySelector("initials");
 var timer = document.getElementById("timer");
 var question = document.getElementById("questionBox");
 var answerA = document.getElementById("answerBoxA");
@@ -13,6 +13,8 @@ var timeLeft = 30
 var i = 0
 var score = 0;
 var topScores = []
+
+
 
 // question arrays
 var questionSet = [ {
@@ -74,8 +76,12 @@ document.getElementById("answerBoxA").addEventListener("click", responseA);
 document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
+document.getElementById("submitBtn").addEventListener("click", getStats);
 
 // game start/stop functions
+
+function getStats() {
+document.getElementById("initialsInput.value"), console.log(initialsInput.value)}
 
 
 function showTimer() {
@@ -115,7 +121,7 @@ function gameOver() {
   timeLeft = 0;
   timer.textContent = timeLeft + " seconds remaining";
 
-  // localStorage.setItem('score', score);
+  localStorage.setItem('topScores', topScores);
  
 }
 // ISSUE!! gameOver needs to stop the countdown 
@@ -170,7 +176,6 @@ function nextQuestion() {
   }
 
 // Score/username storage
-
 
 
 var highScores = []
