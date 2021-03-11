@@ -9,9 +9,10 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
-var timeLeft = 60
+var timeLeft = 30
 var i = 0
 var score = 0;
+var topScores = []
 
 // question arrays
 var questionSet = [ {
@@ -77,7 +78,7 @@ document.getElementById("answerBoxD").addEventListener("click", responseD);
 // game start/stop functions
 function showScore() {
   scoreBox.textContent = score;
-} showScore()
+} showScore();
 
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -86,6 +87,7 @@ function showTimer() {
 function startGame() {
   countdown();
   showQuestion();
+  i = 0;
 }
 
 function countdown() {
@@ -94,18 +96,25 @@ function countdown() {
       timer.textContent = timeLeft + " seconds remaining";
       timeLeft--;
     } else {
-      clearInterval(timeInterval), gameOver();
+      clearInterval(timeInterval);
     }; 
-  }, 100);
+  }, 1000);
 }
 
 function gameOver() {
-  timer.textContent = timeLeft + " seconds remaining";
   questionBox.textContent = "Game Over";
   answerBoxA.textContent = "";
   answerBoxB.textContent = "";
   answerBoxC.textContent = "";
   answerBoxD.textContent = "";
+  topScores.push(score);
+  console.log(topScores);
+  score = 0;
+  timeLeft = 0;
+  timer.textContent = timeLeft + " seconds remaining";
+
+  // localStorage.setItem('score', score);
+ 
 }
 // ISSUE!! gameOver needs to stop the countdown 
 
@@ -131,41 +140,45 @@ function nextQuestion() {
     answerBoxB.textContent = questionSet[i].answers[1].text;
     answerBoxC.textContent = questionSet[i].answers[2].text;
     answerBoxD.textContent = questionSet[i].answers[3].text;
-    scoreBox.textContent = score;  
-    console.log("Next Question");
+    // scoreBox.textContent = score;  
     }
   }; 
 
   // score addition/response validation and time penalty
   function responseA () {
     if (questionSet[i].answers[0].correct === true) {
-      score = score + 10, console.log (score),
-      console.log ("True"); 
-    } else {timeLeft = timeLeft - 10, console.log("false")}
+      score = score + 10; 
+    } else {timeLeft = timeLeft - 10};
   }
   
   function responseB () {
     if (questionSet[i].answers[1].correct === true) {
-      score = score + 10, console.log (score),
-      console.log ("True"); 
-    } else {timeLeft = timeLeft - 10,console.log("False")}
+      score = score + 10; 
+    } else {timeLeft = timeLeft - 10};
   }
   
   function responseC () {
     if (questionSet[i].answers[2].correct === true) {
-      score = score + 10, console.log (score),
-      console.log ("True"); 
-    } else {timeLeft = timeLeft - 10,console.log("False")}
+      score = score + 10;
+    } else {timeLeft = timeLeft - 10};
   }
   
   function responseD () {
     if (questionSet[i].answers[3].correct === true) {
-      score = score + 10, console.log (score),
-      console.log ("True"); 
-    } else {timeLeft = timeLeft - 10,console.log("False")}
+      score = score + 10; 
+    } else {timeLeft = timeLeft - 10};
   }
-   
-  
+
+// Score/username storage
+
+
+var highScores = []
+
+
+
+
+
+
 
 
 
