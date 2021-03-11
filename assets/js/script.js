@@ -116,6 +116,10 @@ function countdown() {
   }, 1000);
 }
 
+function showScore() {
+  scoreBox.textContent = score;
+} showScore()
+
 function gameOver() {
   timer.textContent = "";
   questionBox.textContent = "Game Over";
@@ -132,6 +136,7 @@ function showQuestion() {
   answerBoxB.textContent = questionSet[0].answers[1].text;
   answerBoxC.textContent = questionSet[0].answers[2].text;
   answerBoxD.textContent = questionSet[0].answers[3].text;
+  scoreBox.textContent = score;
 } 
 // for loop for above to go through questionSet variable
 function nextQuestion() {
@@ -142,15 +147,13 @@ function nextQuestion() {
     answerBoxA.textContent = questionSet[i].answers[0].text;
     answerBoxB.textContent = questionSet[i].answers[1].text;
     answerBoxC.textContent = questionSet[i].answers[2].text;
-    answerBoxD.textContent = questionSet[i].answers[3].text;  
+    answerBoxD.textContent = questionSet[i].answers[3].text;
+    scoreBox.textContent = score;  
     console.log("Next Question");
     }
   }; 
    
-  function showScore() {
-    scoreBox.textContent = score;
-  } showScore()
-  // Score does not update
+ 
 
 
 
