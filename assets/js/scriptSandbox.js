@@ -2,7 +2,6 @@
 // variables
 var startButton = document.querySelector(".startButton");
 var userAnswer = document.querySelector("userAnswer");
-var userInitials = document.querySelector("initials");
 var timer = document.getElementById("timer");
 var question = document.getElementById("questionBox");
 var answerA = document.getElementById("answerBoxA");
@@ -13,6 +12,9 @@ var timeLeft = 30
 var i = 0
 var score = 0;
 var topScores = []
+var userInitials = []
+// var userStats = []
+var userScores = []
 
 
 
@@ -76,13 +78,15 @@ document.getElementById("answerBoxA").addEventListener("click", responseA);
 document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
-document.getElementById("submitBtn").addEventListener("click", getStats);
+document.getElementById("submitBtn").addEventListener("click", pushStats);
 
 // game start/stop functions
 
-function getStats() {
-document.getElementById("initialsInput.value"), console.log(initialsInput.value)}
-
+// function getStats() {
+//   document.getElementById("initialsInput.value"),
+//   userInitials.push(initialsInput.value),
+//   localStorage.setItem('userInitials', userInitials);
+// }
 
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -116,15 +120,32 @@ function gameOver() {
   answerBoxC.textContent = "";
   answerBoxD.textContent = "";
   topScores.push(score);
-  console.log(topScores);
   score = 0;
   timeLeft = 0;
   timer.textContent = timeLeft + " seconds remaining";
-
-  localStorage.setItem('topScores', topScores);
- 
+  // localStorage.setItem('topScores', topScores);
 }
-// ISSUE!! gameOver needs to stop the countdown 
+
+function getInitials() {
+  document.getElementById("initialsInput.value"),
+  userInitials.push(initialsInput.value), console.log(userInitials),
+  localStorage.setItem('userInitials', userInitials);
+}
+
+function getUserScore() {
+  userScores.push(score);
+  localStorage.setItem('userScores', userScores);
+}
+
+// function getUserStats() {
+//   userStats.push([userInitials, savedScores]),
+//   localStorage.setItem('userStats', userStats);
+// }
+
+function pushStats() {
+  getInitials(),
+  getUserScore();
+}
 
 
 // question display functions
@@ -178,4 +199,4 @@ function nextQuestion() {
 // Score/username storage
 
 
-var highScores = []
+
