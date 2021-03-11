@@ -13,7 +13,7 @@ var i = 0
 var score = 0;
 var topScores = []
 var userInitials = []
-// var userStats = []
+var userStats = []
 var userScores = []
 
 
@@ -82,11 +82,7 @@ document.getElementById("submitBtn").addEventListener("click", pushStats);
 
 // game start/stop functions
 
-// function getStats() {
-//   document.getElementById("initialsInput.value"),
-//   userInitials.push(initialsInput.value),
-//   localStorage.setItem('userInitials', userInitials);
-// }
+
 
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -137,14 +133,13 @@ function getUserScore() {
   localStorage.setItem('userScores', userScores);
 }
 
-// function getUserStats() {
-//   userStats.push([userInitials, savedScores]),
-//   localStorage.setItem('userStats', userStats);
-// }
+
 
 function pushStats() {
   getInitials(),
   getUserScore();
+
+  // modify to add initials and scores as objects into an array. 
 }
 
 
