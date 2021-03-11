@@ -9,19 +9,19 @@ var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
 var timeLeft;
 var i = 0
-var score = 0
+var score = 0;
 
 
 
 var questionSet = [ {
     question: "question 1 here",
     answers: [
-      {text: "answer option a here, false",
-      correct: false},
+      {text: "answer option a here, true",
+      correct: true},
       {text: "answer option b here, false", 
       correct: false},
-      {text: "answer option c here, true", 
-      correct: true},
+      {text: "answer option c here, false", 
+      correct: false},
       {text: "answer option d here, false", 
       correct: false}
     ]
@@ -74,24 +74,28 @@ document.getElementById("answerBoxD").addEventListener("click", responseD);
 
 function responseA () {
   if (questionSet[i].answers[0].correct === true) {
+    score = score + 10, console.log (score),
     console.log ("True"); 
-  } else {console.log("False")}
+  } else {console.log("false")}
 }
 
 function responseB () {
   if (questionSet[i].answers[1].correct === true) {
+    score = score + 10, console.log (score),
     console.log ("True"); 
   } else {console.log("False")}
 }
 
 function responseC () {
   if (questionSet[i].answers[2].correct === true) {
+    score = score + 10, console.log (score),
     console.log ("True"); 
   } else {console.log("False")}
 }
 
 function responseD () {
   if (questionSet[i].answers[3].correct === true) {
+    score = score + 10, console.log (score),
     console.log ("True"); 
   } else {console.log("False")}
 }
