@@ -16,8 +16,6 @@ var userStats = []
 
 
 
-
-
 // question arrays
 var questionSet = [ {
     question: "question 1 here",
@@ -83,7 +81,6 @@ document.getElementById("submitBtn").addEventListener("click", pushStats);
 // game start/stop functions
 
 
-
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
 } showTimer();
@@ -123,19 +120,15 @@ function gameOver() {
 
 function getInitials() {
   document.getElementById("initialsInput.value");
-  userInitials.push(initialsInput.value);
-  return initialsInput.value
+  userInitials.push(initialsInput.value),
+  console.log(userInitials)
 }
 
 function pushStats() {
   getInitials();
-  
-  
-  // modify to add initials and scores as objects into an array. 
-  // key = userInitial value = score
-  // remember JSON stringify
+  userStats.push(JSON.stringify({userInitials:[score]})),
+  console.log(userStats);
 }
-
 
 // question display functions
 function showQuestion() {
