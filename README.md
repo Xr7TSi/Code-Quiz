@@ -1,7 +1,7 @@
 # Code-Quiz
 
 
-This Password Generator creates a password based on user input including desired character type and desired password length.
+This timed Code Quiz asks the user questions and evaluates user responses. 
 
 [Go to Code-Quiz](https://xr7tsi.github.io/Code-Quiz/)
 
