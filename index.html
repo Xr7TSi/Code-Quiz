@@ -12,14 +12,26 @@
     </head>
     
     <body>
-    
-        <h1>Coding Quiz Challenge</h1>
 
-        <div id="scoreBox"></div>
+       
+    <header class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1"><h1>Coding Quiz Challenge</h1></span>
+        </div>
+    </header>
+    
+   
 
         <div id="startButton">
-            <button class="btn btn-primary" type="submit">Start</button>
+        <button class="btn btn-primary" type="submit">Start</button>
         </div>
+        
+
+        <div>
+            <h3 id="scoreBox"></h3>
+        </div>
+
+      
 
         <div class="container">
              <h5 id="timer"></h5>
@@ -33,24 +45,23 @@
             <div id="answerBoxD"></div>         
         </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="initials">Initials</span>
-            <textarea id="initialsInput"></textarea>
 
-            <div id="submitBtn">
-            <input class="btn btn-primary" type="submit" value="Submit">
+        
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="initials">Initials</span>
+                <textarea id="initialsInput"></textarea>
+
+                <div id="submitBtn">
+                <input class="btn btn-primary" type="submit" value="Submit">
+                </div>
             </div>
-            
-        </div>
+        
 
         <div id="scoresBox">
             <h2></h2>
-            <div id="topScores1"></div>
-            <div id="topScores2"></div>
-            <div id="topScores3"></div>
-            <div id="topScores4"></div>
-            <div id="topScores5"></div>
         </div>
+
+        <div id="userScores1"></div>
 
         <div></div>
         <script src="assets\js\script.js" async defer></script>

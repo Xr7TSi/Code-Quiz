@@ -8,59 +8,59 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
-var scoresBox = document.getElementById("scoresBox")
 var timeLeft = 30
 var i = 0
 var score = 0;
-
+var initials;
+var usersStats = []
 
 // question arrays
 var questionSet = [ {
-    question: "question 1 here",
+    question: "JavaScript is:",
     answers: [
-      {text: "answer option a here, true",
+      {text: "a programming language.",
       correct: true},
-      {text: "answer option b here, false", 
+      {text: "a markup language.", 
       correct: false},
-      {text: "answer option c here, false", 
+      {text: "exactly the same thing as Java.", 
       correct: false},
-      {text: "answer option d here, false", 
+      {text: "a prescription for coffee.", 
       correct: false}
     ]
   }, {
-    question: "question 2 here",
+    question: "DOM stands for:",
     answers: [
-      {text: "answer option a here, false",
+      {text: "Document Oriented Model",
       correct: false},
-      {text: "answer option b here, false", 
+      {text: "Different Order Markup", 
       correct: false},
-      {text: "answer option c here, false", 
+      {text: "Don't Overlook Marmalade", 
       correct: false},
-      {text: "answer option d here, true", 
+      {text: "Document Object Model", 
       correct: true}
     ]
   }, {
-    question: "question 3 here",
+    question: "CSS stands for:",
     answers: [
-      {text: "answer option a here, false",
+      {text: "Cascading Style Separator",
       correct: false},
-      {text: "answer option b here, false", 
+      {text: "", 
       correct: false},
-      {text: "answer option c here, true", 
+      {text: "Cascading Style Sheets", 
       correct: true},
-      {text: "answer option d here, false", 
+      {text: "Callback Semantic System", 
       correct: false}
     ]
   }, {
-    question: "question 4 here",
+    question: "HTML is:",
     answers: [
-      {text: "answer option a here, true",
+      {text: "an acronym for Hypertext markup Language",
       correct: true},
-      {text: "answer option b here, false", 
+      {text: "optional when creating a web application", 
       correct: false},
-      {text: "answer option c here, false", 
+      {text: "a programming language", 
       correct: false},
-      {text: "answer option d here, false", 
+      {text: "a trendy bistro in Midtown", 
       correct: false}
     ]
   }
@@ -91,6 +91,7 @@ function startGame() {
   showQuestion();
   i = 0;
 }
+
 
 function countdown() {
   var timeInterval = setInterval(function () {
@@ -125,34 +126,23 @@ function makeArray() {
 }
 
 
-var initials;
-var usersStats = []
 
-function submit() {
-  getInitials();
-  // makes initials
+function submit() { 
+  if (usersStats.length < 1)
+  {getInitials();
   makeArray();
-
-  // makes array of initials and score which is called playerData
   usersStats.push(playerData);
-  // pushes playerData into array usersStats
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
-  // sets usersStats to local storage
-  
+  } else {
+  getInitials();
+  makeArray();
+  usersStats.concat(playerData);
+  };
+  function userScores() {
+    scoresBox.textContent = "User Score",
+    userScores1.textContent = score;
+    }; userScores()
 }
-
-
-
-
-// function showTopScores() {
-  // scoresBox.textContent = "TopScores",
-  // scoresBox.topScores1.textContent = userStats;
-  // scoresBox.topScores2.textContent = userStats[1],
-  // scoresBox.topScores3.textContent = userStats[2],
-  // scoresBox.topScores4.textContent = userStats[3],
-  // scoresBox.topScores5.textContent = userStats[4];
-  // } 
-
 
 
 // question display functions
@@ -177,6 +167,9 @@ function nextQuestion() {
     // scoreBox.textContent = score;  
     }
   }; 
+
+
+
 
   // score addition/response validation and time penalty
   function responseA () {

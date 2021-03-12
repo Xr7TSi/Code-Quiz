@@ -208,3 +208,6 @@ function nextQuestion() {
 
 
 
+var usersStats = localStorage.getItem('userStats')
+  ? JSON.parse(localStorage.getItem('userStats'))
+  : [];
