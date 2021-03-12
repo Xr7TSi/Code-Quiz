@@ -13,7 +13,8 @@ var i = 0
 var score = 0;
 var userInitials = []
 var userStats = []
-var userScore = []
+
+
 
 
 
@@ -116,25 +117,23 @@ function gameOver() {
   answerBoxC.textContent = "";
   answerBoxD.textContent = "";
   timeLeft = 0;
-  timer.textContent = timeLeft + " seconds remaining",
-  getUserScore(); 
+  timer.textContent = timeLeft + " seconds remaining";
+   
 }
 
 function getInitials() {
-  document.getElementById("initialsInput.value"),
+  document.getElementById("initialsInput.value");
   userInitials.push(initialsInput.value);
-}
-
-function getUserScore() {
-  userScore.push(score);
+  return initialsInput.value
 }
 
 function pushStats() {
-  getInitials(),
-  userStats.push("Hello"),
-  localStorage.setItem('userStats', userStats);
+  getInitials();
+  
   
   // modify to add initials and scores as objects into an array. 
+  // key = userInitial value = score
+  // remember JSON stringify
 }
 
 
