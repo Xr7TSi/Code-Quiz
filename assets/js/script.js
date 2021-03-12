@@ -132,8 +132,9 @@ function submit() {
   getInitials();
   // makes initials
   makeArray();
+
   // makes array of initials and score which is called playerData
-  usersStats.push(playerData)
+  usersStats.push(playerData);
   // pushes playerData into array usersStats
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   // sets usersStats to local storage
