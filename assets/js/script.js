@@ -8,6 +8,7 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
+var scoresBox = document.getElementById("scoresBox")
 var timeLeft = 30
 var i = 0
 var score = 0;
@@ -115,20 +116,32 @@ function gameOver() {
   answerBoxD.textContent = "";
   timeLeft = 0;
   timer.textContent = timeLeft + " seconds remaining";
-   
 }
 
 function getInitials() {
   document.getElementById("initialsInput.value");
   userInitials.push(initialsInput.value),
-  console.log(userInitials)
+  console.log(userInitials);
 }
 
 function pushStats() {
-  getInitials();
+  getInitials(),
   userStats.push(JSON.stringify({userInitials:[score]})),
   console.log(userStats);
+  localStorage.setItem("userStats", JSON.stringify(userStats));
+  // showTopScores();
 }
+
+// function showTopScores() {
+  // scoresBox.textContent = "TopScores",
+  // scoresBox.topScores1.textContent = userStats;
+  // scoresBox.topScores2.textContent = userStats[1],
+  // scoresBox.topScores3.textContent = userStats[2],
+  // scoresBox.topScores4.textContent = userStats[3],
+  // scoresBox.topScores5.textContent = userStats[4];
+  // } 
+
+
 
 // question display functions
 function showQuestion() {

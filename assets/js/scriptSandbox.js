@@ -8,13 +8,12 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
+var topScores = document.getElementById("topScores");
 var timeLeft = 30
 var i = 0
 var score = 0;
 var userInitials = []
 var userStats = []
-
-
 
 
 
@@ -83,7 +82,6 @@ document.getElementById("submitBtn").addEventListener("click", pushStats);
 // game start/stop functions
 
 
-
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
 } showTimer();
@@ -123,19 +121,20 @@ function gameOver() {
 
 function getInitials() {
   document.getElementById("initialsInput.value");
-  userInitials.push(initialsInput.value);
-  return initialsInput.value
+  userInitials.push(initialsInput.value),
+  console.log(userInitials);
 }
 
 function pushStats() {
-  getInitials();
-  
-  
-  // modify to add initials and scores as objects into an array. 
-  // key = userInitial value = score
-  // remember JSON stringify
+  getInitials(),
+  userStats.push(JSON.stringify({userInitials:[score]})),
+  console.log(userStats);
+  localStorage.setItem("userStats", JSON.stringify(userStats));
 }
 
+function showTopScores() {
+topScores.textContent="Heres some scores"
+} showTopScores()
 
 // question display functions
 function showQuestion() {
@@ -186,6 +185,7 @@ function nextQuestion() {
   }
 
 // Score/username storage
+
 
 
 
