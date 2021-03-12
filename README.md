@@ -5,7 +5,7 @@ This Password Generator creates a password based on user input including desired
 
 [Go to Code-Quiz](https://xr7tsi.github.io/Code-Quiz/)
 
-!(./assets/Code-Quiz-img.png)
+![Code-Quiz demo](./assets/Code-Quiz-img.png)
 
 ## License
 [MIT](MIT License
