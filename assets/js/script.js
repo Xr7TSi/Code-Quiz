@@ -12,7 +12,6 @@ var scoresBox = document.getElementById("scoresBox")
 var timeLeft = 30
 var i = 0
 var score = 0;
-var userInitials = []
 var userStats = []
 
 
@@ -77,7 +76,7 @@ document.getElementById("answerBoxA").addEventListener("click", responseA);
 document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
-document.getElementById("submitBtn").addEventListener("click", pushStats);
+document.getElementById("submitBtn").addEventListener("click", submit);
 
 // game start/stop functions
 
@@ -120,17 +119,29 @@ function gameOver() {
 
 function getInitials() {
   document.getElementById("initialsInput.value");
-  userInitials.push(initialsInput.value),
-  console.log(userInitials);
+  return initialsInput.value
 }
 
-function pushStats() {
-  getInitials(),
-  userStats.push(JSON.stringify({userInitials:[score]})),
-  console.log(userStats);
-  localStorage.setItem("userStats", JSON.stringify(userStats));
-  // showTopScores();
+function submit() {
+  getInitials();
+  var gameResult = {
+    initials: initialsInput.value,
+    score: score,
+  }; console.log(gameResult)
 }
+
+
+
+
+
+// userStats.push(JSON.stringify({userInitials:[score]})),
+  // console.log(userStats);
+  // localStorage.setItem("userStats", JSON.stringify(userStats));
+  // showTopScores();
+
+
+
+
 
 // function showTopScores() {
   // scoresBox.textContent = "TopScores",
