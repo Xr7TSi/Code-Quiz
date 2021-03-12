@@ -54,7 +54,7 @@ var questionSet = [ {
   }, {
     question: "HTML is:",
     answers: [
-      {text: "an acronym for Hypertext markup Language",
+      {text: "an acronym for Hypertext Markup Language",
       correct: true},
       {text: "optional when creating a web application", 
       correct: false},
@@ -77,13 +77,12 @@ document.getElementById("answerBoxD").addEventListener("click", responseD);
 document.getElementById("submitBtn").addEventListener("click", submit);
 
 // game start/stop functions
-
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
 } showTimer();
 
 function showScore() {
-  scoreBox.textContent = score;
+  scoreBox.textContent = "SCORE " + score;
 } showScore();
 
 function startGame() {
@@ -91,7 +90,6 @@ function startGame() {
   showQuestion();
   i = 0;
 }
-
 
 function countdown() {
   var timeInterval = setInterval(function () {
@@ -126,7 +124,6 @@ function makeArray() {
 }
 
 
-
 function submit() { 
   if (usersStats.length < 1)
   {getInitials();
@@ -143,7 +140,6 @@ function submit() {
     userScores1.textContent = score;
     }; userScores()
 }
-
 
 // question display functions
 function showQuestion() {
@@ -167,9 +163,6 @@ function nextQuestion() {
     // scoreBox.textContent = score;  
     }
   }; 
-
-
-
 
   // score addition/response validation and time penalty
   function responseA () {
@@ -196,4 +189,4 @@ function nextQuestion() {
     } else {timeLeft = timeLeft - 10};
   }
 
-// Score/username storage
+
