@@ -12,7 +12,7 @@ var scoresBox = document.getElementById("scoresBox")
 var timeLeft = 30
 var i = 0
 var score = 0;
-var userStats = []
+
 
 // question arrays
 var questionSet = [ {
@@ -116,18 +116,32 @@ function gameOver() {
 
 function getInitials() {
   document.getElementById("initialsInput.value");
+  initials = initialsInput.value
   return initialsInput.value
 }
 
+function makeArray() {
+  playerData = {initials, score}
+}
+
+
+var initials;
+var usersStats = []
+
 function submit() {
   getInitials();
-  var userInitials = {
-    initials: initialsInput.value,
-  };
-  localStorage.setItem(JSON.stringify({userInitials:[score]})),
-  console.log(gameResult); 
+  // makes initials
+  makeArray();
+  // makes array of initials and score which is called playerData
+  usersStats.push(playerData)
+  // pushes playerData into array usersStats
+  localStorage.setItem("usersStats", JSON.stringify(usersStats));
+  // sets usersStats to local storage
   
 }
+
+
+
 
 // function showTopScores() {
   // scoresBox.textContent = "TopScores",
@@ -189,6 +203,7 @@ function nextQuestion() {
   }
 
 // Score/username storage
+
 
 
 
