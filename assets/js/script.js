@@ -14,8 +14,6 @@ var i = 0
 var score = 0;
 var userStats = []
 
-
-
 // question arrays
 var questionSet = [ {
     question: "question 1 here",
@@ -80,7 +78,6 @@ document.getElementById("submitBtn").addEventListener("click", submit);
 
 // game start/stop functions
 
-
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
 } showTimer();
@@ -124,24 +121,13 @@ function getInitials() {
 
 function submit() {
   getInitials();
-  var gameResult = {
+  var userInitials = {
     initials: initialsInput.value,
-    score: score,
-  }; console.log(gameResult)
+  };
+  localStorage.setItem(JSON.stringify({userInitials:[score]})),
+  console.log(gameResult); 
+  
 }
-
-
-
-
-
-// userStats.push(JSON.stringify({userInitials:[score]})),
-  // console.log(userStats);
-  // localStorage.setItem("userStats", JSON.stringify(userStats));
-  // showTopScores();
-
-
-
-
 
 // function showTopScores() {
   // scoresBox.textContent = "TopScores",
