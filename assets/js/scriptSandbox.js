@@ -148,9 +148,9 @@ function gameReset () {
 
 // line 152 works, 153 does not.
 function getUsersStats () {
-  displayUserStats = JSON.parse(localStorage.getItem("usersStats"));
-  console.log(displayUserStats);
-  document.querySelector(".userScores").textContent = displayUserStats.initials
+  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  console.log(displayUsersStats);
+  document.querySelector(".userScores").textContent = displayUsersStats.initials;
 } 
  
 
@@ -202,4 +202,3 @@ function nextQuestion() {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
-
