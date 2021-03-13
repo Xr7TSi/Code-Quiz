@@ -1,6 +1,6 @@
 
 // variables
-var startButton = document.querySelector(".startButton");
+var startButton = document.querySelector("startButton");
 var userAnswer = document.querySelector("userAnswer");
 var timer = document.getElementById("timer");
 var question = document.getElementById("questionBox");
@@ -8,7 +8,8 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
-var InitialsBox = document.getElementById("initialsBox")
+var InitialsBox = document.getElementById("initialsBox");
+var showButton = document.getElementById("showButton");
 var timeLeft = 30
 var i = 0
 var score = 0;
@@ -93,6 +94,7 @@ function showScore() {
 function startGame() {
   countdown();
   showQuestion();
+  showButton.style.visibility = "hidden",
   i = 0;
 }
 
@@ -108,34 +110,7 @@ function countdown() {
   }, 1000);
 }
 
-function gameOver() {
-  questionBox.textContent = "Game Over";
-  answerBoxA.textContent = "";
-  answerBoxB.textContent = "";
-  answerBoxC.textContent = "";
-  answerBoxD.textContent = "";
-  timeLeft = 0;
-  timer.textContent = timeLeft + " seconds remaining";
-  InitialsBox.style.visibility = ""
-}
 
-function getInitials() {
-  document.getElementById("initialsInput.value");
-  initials = initialsInput.value
-  return initialsInput.value
-}
-
-function makeArray() {
-  playerData = {initials, score}
-}
-
-
-function submit() {
-  getInitials();
-  makeArray();
-  usersStats.push(playerData);
-  localStorage.setItem("usersStats", JSON.stringify(usersStats));
-}
 
 // question display functions
 function showQuestion() {
@@ -144,7 +119,7 @@ function showQuestion() {
   answerBoxB.textContent = questionSet[0].answers[1].text;
   answerBoxC.textContent = questionSet[0].answers[2].text;
   answerBoxD.textContent = questionSet[0].answers[3].text;
-  scoreBox.textContent = score;
+  scoreBox.textContent = "SCORE " + score;
 } 
 
 function nextQuestion() {
@@ -184,3 +159,36 @@ function nextQuestion() {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
+
+  function gameOver() {
+    questionBox.textContent = "Game Over";
+    answerBoxA.textContent = "";
+    answerBoxB.textContent = "";
+    answerBoxC.textContent = "";
+    answerBoxD.textContent = "";
+    timeLeft = 0;
+    timer.textContent = timeLeft + " seconds remaining";
+    InitialsBox.style.visibility = ""
+  }
+  
+  function getInitials() {
+    document.getElementById("initialsInput.value");
+    initials = initialsInput.value
+    return initialsInput.value
+  }
+  
+  function makeArray() {
+    playerData = {initials, score}
+  }
+  
+  
+  function submit() {
+    getInitials();
+    makeArray();
+    usersStats.push(playerData);
+    localStorage.setItem("usersStats", JSON.stringify(usersStats));
+  }
+  
+  function gameReset () {
+    score= 0;
+  } 

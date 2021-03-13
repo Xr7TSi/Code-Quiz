@@ -81,7 +81,6 @@ document.getElementById("submitBtn").addEventListener("click", submit);
 // hides initials box before end of game
 initialsBox.style.visibility = "hidden"
 
-
 // game start/stop functions
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -131,13 +130,20 @@ function makeArray() {
   playerData = {initials, score}
 }
 
-
 function submit() {
   getInitials();
   makeArray();
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
+  gameReset();
 }
+
+function gameReset () {
+  initialsBox.style.visibility = "hidden";
+  showButton.style.visibility = ""; 
+}
+
+
 
 // question display functions
 function showQuestion() {
@@ -146,7 +152,7 @@ function showQuestion() {
   answerBoxB.textContent = questionSet[0].answers[1].text;
   answerBoxC.textContent = questionSet[0].answers[2].text;
   answerBoxD.textContent = questionSet[0].answers[3].text;
-  scoreBox.textContent = score;
+  scoreBox.textContent = "SCORE " + score;
 } 
 
 function nextQuestion() {
@@ -186,5 +192,8 @@ function nextQuestion() {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
+
+
+
 
 
