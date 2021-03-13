@@ -147,10 +147,11 @@ function gameReset () {
 }
 
 // line 152 works, 153 does not.
+//  displayUsersStats[0];
 function getUsersStats () {
   displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
   console.log(displayUsersStats);
-  document.querySelector(".userScores").textContent = displayUsersStats.initials;
+  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
 } 
  
 
