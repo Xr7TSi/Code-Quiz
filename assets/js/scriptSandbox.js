@@ -8,6 +8,7 @@ var answerA = document.getElementById("answerBoxA");
 var answerB = document.getElementById("answerBoxB");
 var answerC = document.getElementById("answerBoxC");
 var answerD = document.getElementById("answerBoxD");
+var InitialsBox = document.getElementById("initialsBox")
 var timeLeft = 30
 var i = 0
 var score = 0;
@@ -44,7 +45,7 @@ var questionSet = [ {
     answers: [
       {text: "Cascading Style Separator",
       correct: false},
-      {text: "", 
+      {text: "Capstone Serial Selector", 
       correct: false},
       {text: "Cascading Style Sheets", 
       correct: true},
@@ -75,6 +76,10 @@ document.getElementById("answerBoxB").addEventListener("click", responseB);
 document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 document.getElementById("submitBtn").addEventListener("click", submit);
+
+// hides initials box before end of game
+initialsBox.style.visibility = "hidden"
+
 
 // game start/stop functions
 function showTimer() {
@@ -111,6 +116,7 @@ function gameOver() {
   answerBoxD.textContent = "";
   timeLeft = 0;
   timer.textContent = timeLeft + " seconds remaining";
+  InitialsBox.style.visibility = ""
 }
 
 function getInitials() {
@@ -124,21 +130,11 @@ function makeArray() {
 }
 
 
-function submit() { 
-  if (usersStats.length < 1)
-  {getInitials();
+function submit() {
+  getInitials();
   makeArray();
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
-  } else {
-  getInitials();
-  makeArray();
-  usersStats.concat(playerData);
-  };
-  function userScores() {
-    scoresBox.textContent = "User Score",
-    userScores1.textContent = score;
-    }; userScores()
 }
 
 // question display functions
