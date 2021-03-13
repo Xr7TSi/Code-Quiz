@@ -15,6 +15,8 @@ var i = 0
 var score = 0;
 var initials;
 var usersStats = []
+var displayInitials;
+var displayScore;
 
 // question arrays
 var questionSet = [ {
@@ -78,9 +80,8 @@ document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 document.getElementById("submitBtn").addEventListener("click", submit);
 
-// hides initials box before end of game
+// pre-game appearance
 initialsBox.style.visibility = "hidden"
-
 
 // game start/stop functions
 function showTimer() {
@@ -110,7 +111,45 @@ function countdown() {
   }, 1000);
 }
 
+function gameOver() {
+  questionBox.textContent = "Game Over";
+  answerBoxA.textContent = "";
+  answerBoxB.textContent = "";
+  answerBoxC.textContent = "";
+  answerBoxD.textContent = "";
+  timeLeft = 0;
+  timer.textContent = timeLeft + " seconds remaining";
+  InitialsBox.style.visibility = ""
+}
 
+function getInitials() {
+  document.getElementById("initialsInput.value");
+  initials = initialsInput.value
+  return initialsInput.value
+}
+
+function makeArray() {
+  playerData = {initials, score}
+}
+
+function submit() {
+  getInitials();
+  makeArray();
+  usersStats.push(playerData);
+  localStorage.setItem("usersStats", JSON.stringify(usersStats));
+  gameReset();
+}
+
+function gameReset () {
+  initialsBox.style.visibility = "hidden";
+  showButton.style.visibility = ""; 
+}
+
+function getUserStats () {
+  for (let index = 0; index < usersStats.length; index++) {
+    
+  }
+} 
 
 // question display functions
 function showQuestion() {
@@ -160,35 +199,3 @@ function nextQuestion() {
     } else {timeLeft = timeLeft - 10};
   }
 
-  function gameOver() {
-    questionBox.textContent = "Game Over";
-    answerBoxA.textContent = "";
-    answerBoxB.textContent = "";
-    answerBoxC.textContent = "";
-    answerBoxD.textContent = "";
-    timeLeft = 0;
-    timer.textContent = timeLeft + " seconds remaining";
-    InitialsBox.style.visibility = ""
-  }
-  
-  function getInitials() {
-    document.getElementById("initialsInput.value");
-    initials = initialsInput.value
-    return initialsInput.value
-  }
-  
-  function makeArray() {
-    playerData = {initials, score}
-  }
-  
-  
-  function submit() {
-    getInitials();
-    makeArray();
-    usersStats.push(playerData);
-    localStorage.setItem("usersStats", JSON.stringify(usersStats));
-  }
-  
-  function gameReset () {
-    score= 0;
-  } 

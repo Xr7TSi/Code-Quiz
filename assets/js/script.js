@@ -15,6 +15,8 @@ var i = 0
 var score = 0;
 var initials;
 var usersStats = []
+var displayInitials;
+var displayScore;
 
 // question arrays
 var questionSet = [ {
@@ -78,7 +80,7 @@ document.getElementById("answerBoxC").addEventListener("click", responseC);
 document.getElementById("answerBoxD").addEventListener("click", responseD);
 document.getElementById("submitBtn").addEventListener("click", submit);
 
-// hides initials box before end of game
+// pre-game appearance
 initialsBox.style.visibility = "hidden"
 
 // game start/stop functions
@@ -136,6 +138,7 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
+  getUserStats ();
 }
 
 function gameReset () {
@@ -143,6 +146,13 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
+// pull userStats from local storage for display
+// function getUserStats () {
+//   // for (let index = 0; index < usersStats.length; index++) {
+//     getInitials = localStorage.getItem(userStats.initials)
+//     // var getScore = ();
+//     // append when done
+//   } getUserStats()
 
 
 // question display functions
