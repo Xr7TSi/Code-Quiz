@@ -138,7 +138,7 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  getUsersStats();
+  
 }
 
 function gameReset () {
@@ -146,14 +146,12 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-// line 152 works, 153 does not.
-//  displayUsersStats[0];
+// displays user stats
 function getUsersStats () {
   displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
   console.log(displayUsersStats);
   document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
-} 
- 
+} getUsersStats()
 
 
 // question display functions

@@ -83,6 +83,14 @@ document.getElementById("submitBtn").addEventListener("click", submit);
 // pre-game appearance
 initialsBox.style.visibility = "hidden"
 
+// displays user stats
+function getUsersStats () {
+  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  console.log(displayUsersStats);
+  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
+} getUsersStats()
+
+
 // game start/stop functions
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -138,22 +146,13 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  getUsersStats();
+  
 }
 
 function gameReset () {
   initialsBox.style.visibility = "hidden";
   showButton.style.visibility = ""; 
 }
-
-// line 152 works, 153 does not.
-function getUsersStats () {
-  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
-  console.log(displayUsersStats);
-  document.querySelector(".userScores").textContent = displayUsersStats.initials;
-} 
- 
-
 
 // question display functions
 function showQuestion() {
@@ -201,4 +200,3 @@ function nextQuestion() {
     if (questionSet[i].answers[3].correct === true) {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
-  }
