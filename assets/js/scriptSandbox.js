@@ -83,14 +83,6 @@ document.getElementById("submitBtn").addEventListener("click", submit);
 // pre-game appearance
 initialsBox.style.visibility = "hidden"
 
-// displays user stats
-function getUsersStats () {
-  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
-  console.log(displayUsersStats);
-  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
-} getUsersStats()
-
-
 // game start/stop functions
 function showTimer() {
   timer.textContent = timeLeft + " seconds remaining";
@@ -154,6 +146,26 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
+
+
+// displays usersStats
+function getUsersStats () {
+  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  console.log(displayUsersStats);
+  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
+} getUsersStats()
+
+
+// displays usersStats improved(in progress)
+function getUsersStats () {
+  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  console.log(displayUsersStats);
+  // document.scoresBox.appendChild(displayUsersStats[0].initials + displayUsersStats[0].score);
+  document.body.appendChild("banana");
+} getUsersStats()
+
+
+
 // question display functions
 function showQuestion() {
   questionBox.textContent = questionSet[0].question;
@@ -200,3 +212,4 @@ function nextQuestion() {
     if (questionSet[i].answers[3].correct === true) {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
+  }

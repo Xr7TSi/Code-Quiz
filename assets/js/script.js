@@ -138,7 +138,7 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  
+  getUsersStats()
 }
 
 function gameReset () {
@@ -146,11 +146,15 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-// displays user stats
+// Gets and displays results of previous games
 function getUsersStats () {
   displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
   console.log(displayUsersStats);
-  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
+  if (displayUsersStats !== null) {
+    for (let index = 0; index < displayUsersStats.length; index++) {
+      scoresBox.append(displayUsersStats[index].initials + " " + displayUsersStats[index].score)
+    }
+  }
 } getUsersStats()
 
 
