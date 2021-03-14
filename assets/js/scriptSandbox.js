@@ -139,7 +139,7 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  getUsersStats()
+  
 }
 
 function gameReset () {
@@ -147,20 +147,19 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-function getUsersStats () {
+function showUsersInitials () {
   var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
-  console.log(displayUsersStats);
-  if (displayUsersStats !== null) {
     for (let index = 0; index < displayUsersStats.length; index++) {
-      var displayUsersStats = displayUsersStats[index];
-
+      var displayUsersInitials = displayUsersStats[index].initials;
       var li = document.createElement("li");
-      li.textContent = displayUsersStats;
+      li.textContent = displayUsersInitials;
       li.setAttribute("data-index", index);
       scoresBox.appendChild(li);
-    }
   }
-} getUsersStats()
+} showUsersInitials();
+
+
+//  if (displayUsersStats.initials !== null)
 
 
 // question display functions
@@ -210,4 +209,5 @@ function nextQuestion() {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
+
 
