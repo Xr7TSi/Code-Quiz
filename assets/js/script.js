@@ -147,16 +147,27 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-function showUsersInitials () {
+function showInitialsHistory () {
   var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
     for (let index = 0; index < displayUsersStats.length; index++) {
       var displayUsersInitials = displayUsersStats[index].initials;
       var li = document.createElement("li");
       li.textContent = displayUsersInitials;
       li.setAttribute("data-index", index);
-      scoresBox.appendChild(li);
+      initialsHistory.appendChild(li);
   }
-} showUsersInitials();
+} showInitialsHistory();
+
+function showScoresHistory () {
+  var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+    for (let index = 0; index < displayUsersStats.length; index++) {
+      var displayUsersScores = displayUsersStats[index].score;
+      var li = document.createElement("li");
+      li.textContent = displayUsersScores;
+      li.setAttribute("data-index", index);
+      scoresHistory.appendChild(li);
+  }
+} showScoresHistory();
 
 
 //  if (displayUsersStats.initials !== null)
