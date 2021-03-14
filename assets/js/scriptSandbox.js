@@ -122,6 +122,7 @@ function gameOver() {
   InitialsBox.style.visibility = ""
 }
 
+// user stats storage and display
 function getInitials() {
   document.getElementById("initialsInput.value");
   initials = initialsInput.value
@@ -138,7 +139,7 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  
+  getUsersStats()
 }
 
 function gameReset () {
@@ -146,24 +147,20 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-
-
-// displays usersStats
 function getUsersStats () {
-  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
   console.log(displayUsersStats);
-  document.querySelector(".userScores").textContent = displayUsersStats[0].initials + displayUsersStats[0].score;
+  if (displayUsersStats !== null) {
+    for (let index = 0; index < displayUsersStats.length; index++) {
+      var displayUsersStats = displayUsersStats[index];
+
+      var li = document.createElement("li");
+      li.textContent = displayUsersStats;
+      li.setAttribute("data-index", index);
+      scoresBox.appendChild(li);
+    }
+  }
 } getUsersStats()
-
-
-// displays usersStats improved(in progress)
-function getUsersStats () {
-  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
-  console.log(displayUsersStats);
-  // document.scoresBox.appendChild(displayUsersStats[0].initials + displayUsersStats[0].score);
-  document.body.appendChild("banana");
-} getUsersStats()
-
 
 
 // question display functions
@@ -213,3 +210,4 @@ function nextQuestion() {
       score = score + 10, showScore(); 
     } else {timeLeft = timeLeft - 10};
   }
+

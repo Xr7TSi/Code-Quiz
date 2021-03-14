@@ -122,6 +122,7 @@ function gameOver() {
   InitialsBox.style.visibility = ""
 }
 
+// user stats storage and display
 function getInitials() {
   document.getElementById("initialsInput.value");
   initials = initialsInput.value
@@ -146,13 +147,17 @@ function gameReset () {
   showButton.style.visibility = ""; 
 }
 
-// Gets and displays results of previous games
 function getUsersStats () {
-  displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
+  var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
   console.log(displayUsersStats);
   if (displayUsersStats !== null) {
     for (let index = 0; index < displayUsersStats.length; index++) {
-      scoresBox.append(displayUsersStats[index].initials + " " + displayUsersStats[index].score)
+      var displayUsersStats = displayUsersStats[index];
+
+      var li = document.createElement("li");
+      li.textContent = displayUsersStats;
+      li.setAttribute("data-index", index);
+      scoresBox.appendChild(li);
     }
   }
 } getUsersStats()
