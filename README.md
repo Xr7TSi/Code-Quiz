@@ -5,7 +5,7 @@ This timed Code Quiz asks the user questions and evaluates user responses.
 
 [Go to Code-Quiz](https://xr7tsi.github.io/Code-Quiz/)
 
-![Code-Quiz demo](./assets/Code-Quiz-img.png)
+![Code-Quiz demo](./assets/Code-Quiz-New.png)
 
 ## License
 [MIT](MIT License
