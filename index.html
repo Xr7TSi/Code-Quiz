@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,42 +11,70 @@
         <link rel="stylesheet" href="assets\css\style.css">
     </head>
     
-    <body>
+  <header class="container-fluid bg-dark text-light mb-5 p-3">
+      <h1>Coding Quiz Challenge</h1>
+  </header>
 
-       
-    <header class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1"><h1>Coding Quiz Challenge</h1></span>
+  <section class="container-fluid bg-dark text-light mb-5 p-3">
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div>
+            <h3 id="scoreBox"></h3>
         </div>
-    </header>
-    
-   
+       
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
         <div id="showButton">
             <div id="startButton">
             <button class="btn btn-primary" type="submit">Start</button>
             </div>
         </div>
-
-        <div>
-            <h3 id="scoreBox"></h3>
-        </div>
-
-        
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
         <div class="container">
-             <h5 id="timer"></h5>
+            <h5 id="timer"></h5>
+       </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+       
+      </div>
+    </div>
+  </section>
+
+  <section class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8 col-lg-6">
+        <div id="answerBoxMain"> 
+            <div id="questionBox"></div>  
+            <div id="answerBoxA"></div>
+            <div id="answerBoxB"></div> 
+            <div id="answerBoxC"></div> 
+            <div id="answerBoxD"></div> 
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div id="answerBoxMain" class="card text-center">
-            
-                <div id="questionBox"></div>  
-                <div id="answerBoxA"></div>
-                <div id="answerBoxB"></div> 
-                <div id="answerBoxC"></div> 
-                <div id="answerBoxD"></div> 
-              
+  <section class="container-fluid bg-dark text-light mb-5 p-3">
+    <div class="row">
+        <div class="col-12 col-md-8 col-xl-9">
+        <h3>PLAYER SCORES</h3>
+            <div class="row">
+            <div class="col-3 col-md-3 col-lg-3">
+                <p>
+                    <ul id="initialsHistory"></ul>
+                </p>
+            </div>
+            <div class="col-3 col-md-3 col-lg-3">
+                <p>
+                    <ul id="scoresHistory"></ul>
+                </p>
+            </div>
+            </div>
         </div>
+    </div>
 
-
+      <div class="col-12 col-md-4 col-xl-3">
         <initials id="initialsBox">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="initials">Initials</span>
@@ -59,18 +85,8 @@
                 </div>
             </div>
         </initials>
-        
-        <div>
-            <h4>Player Scores</h4>
-            
-            <ul id="initialsHistory"></ul>
-            <ul id="scoresHistory"></ul>
-                
-        </div>
+    </div>
+  </section>
 
-        <script src="assets\js\script.js" async defer></script>
-
-       
-
-    </body>
+<script src="assets\js\script.js" async defer></script>
 </html>

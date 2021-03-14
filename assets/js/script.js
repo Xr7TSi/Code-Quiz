@@ -122,7 +122,7 @@ function gameOver() {
   InitialsBox.style.visibility = ""
 }
 
-// user stats storage and display
+// user stats storage, retrieval and display
 function getInitials() {
   document.getElementById("initialsInput.value");
   initials = initialsInput.value
@@ -139,38 +139,38 @@ function submit() {
   usersStats.push(playerData);
   localStorage.setItem("usersStats", JSON.stringify(usersStats));
   gameReset();
-  
+  showInitialsHistory();
+  showScoresHistory();
 }
 
 function gameReset () {
   initialsBox.style.visibility = "hidden";
-  showButton.style.visibility = ""; 
+  showButton.style.visibility = "";
+  score = 0; 
 }
 
 function showInitialsHistory () {
+  initialsHistory.textContent = "";  
   var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
     for (let index = 0; index < displayUsersStats.length; index++) {
       var displayUsersInitials = displayUsersStats[index].initials;
       var li = document.createElement("li");
       li.textContent = displayUsersInitials;
-      li.setAttribute("data-index", index);
       initialsHistory.appendChild(li);
+      
   }
-} showInitialsHistory();
+} 
 
 function showScoresHistory () {
+    scoresHistory.textContent = "";  
   var displayUsersStats = JSON.parse(localStorage.getItem("usersStats"));
     for (let index = 0; index < displayUsersStats.length; index++) {
       var displayUsersScores = displayUsersStats[index].score;
       var li = document.createElement("li");
       li.textContent = displayUsersScores;
-      li.setAttribute("data-index", index);
       scoresHistory.appendChild(li);
   }
-} showScoresHistory();
-
-
-//  if (displayUsersStats.initials !== null)
+} 
 
 
 // question display functions
@@ -192,7 +192,7 @@ function nextQuestion() {
     answerBoxB.textContent = questionSet[i].answers[1].text;
     answerBoxC.textContent = questionSet[i].answers[2].text;
     answerBoxD.textContent = questionSet[i].answers[3].text;
-    // scoreBox.textContent = score;  
+
     }
   }; 
 
