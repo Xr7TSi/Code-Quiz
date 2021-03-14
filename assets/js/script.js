@@ -141,11 +141,13 @@ function submit() {
   gameReset();
   showInitialsHistory();
   showScoresHistory();
+  
 }
 
 function gameReset () {
   initialsBox.style.visibility = "hidden";
   showButton.style.visibility = "";
+  initialsInput.value = "";
   score = 0; 
 }
 
